@@ -1,11 +1,10 @@
 [build]
-  command = "npm ci --legacy-peer-deps && npm run build"
+  command = "npm install --legacy-peer-deps && npm run build"
   publish = "build"
 
 [build.environment]
-  NODE_VERSION = "18"
+  NODE_VERSION = "18"   # keep 18; or set "20" if you want to silence the warning
 
-# SPA routing (same effect as _redirects)
 [[redirects]]
   from = "/*"
   to = "/index.html"
