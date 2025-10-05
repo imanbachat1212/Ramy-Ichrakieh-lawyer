@@ -69,9 +69,23 @@
     position: relative;
   }
 
-  /* RTL Support */
+  /* RTL Support AR */
   :dir(rtl) .timeline-container {
     right: 25%;
+  }
+  :dir(ltr) .timeline-container {
+    left: 1%;
+  }
+  /* LTR Support EN */
+
+  :dir(ltr) .timeline-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 17%; /* for LTR */
+    height: 100%;
+    width: 2px;
+    background-color: #d0bf90;
   }
   :dir(rtl) .timeline-container::before {
     content: "";
@@ -127,7 +141,7 @@
     position: relative;
   }
 
-  /* LTR Support */
+  /* LTR Support EN */
 
   :dir(ltr) .timeline-container::before {
     content: "";

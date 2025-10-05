@@ -1,12 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { HashLink } from "react-router-hash-link";
+// If you use React Router, this auto-closes on route/hash change:
+// import { useLocation } from "react-router-dom";
 
 function Header() {
   const { t, i18n } = useTranslation();
   const isArabic = i18n.language === "ar";
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openSubmenu, setOpenSubmenu] = useState(null);
+
+  // const location = useLocation();
+  // useEffect(() => { closeMobileMenu(); }, [location.pathname, location.hash]);
 
   const toggleLanguage = () => {
     const newLang = i18n.language === "en" ? "ar" : "en";
@@ -21,6 +26,12 @@ function Header() {
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
     document.body.classList.toggle("mobile-menu-open", !isMobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+    setOpenSubmenu(null);
+    document.body.classList.remove("mobile-menu-open");
   };
 
   return (
@@ -69,7 +80,7 @@ function Header() {
           </div>
         </div>
 
-        {/* Main Navigation */}
+        {/* Main Navigation (desktop) */}
         <div className="poket-main-menu one_page hidden-xs hidden-sm witr_h_h10">
           <div className="poket_nav_area scroll_fixed postfix">
             <div className="container">
@@ -81,13 +92,17 @@ function Header() {
                   }}
                 >
                   <div className="logo">
-                    <a className="main_sticky_main_l" href="/" title="poket">
+                    <HashLink
+                      className="main_sticky_main_l"
+                      to="/"
+                      title="poket"
+                    >
                       <img
                         src={require("../images/logo1.jpg")}
                         alt="Logo"
                         style={{ width: "100px", height: "100px" }}
                       />
-                    </a>
+                    </HashLink>
                   </div>
                 </div>
 
@@ -100,45 +115,79 @@ function Header() {
                     <nav className="poket_menu">
                       <ul className="sub-menu">
                         <li>
-                          <a href="/">{t("home")}</a>
+                          <HashLink smooth to="/">
+                            {t("home")}
+                          </HashLink>
                         </li>
                         <li>
-                          <a href="/about">{t("about1")}</a>
+                          <HashLink smooth to="/about">
+                            {t("about1")}
+                          </HashLink>
                         </li>
                         <li>
                           <HashLink smooth to="/#practice">
                             {t("practice")}
                           </HashLink>
                         </li>
+
                         <li className="menu-item-has-children">
-                          <a href="#">{t("attorney")}</a>
-                          <ul className="sub-menu">
-                            <li>
-                              <a href="lowteam">{t("attorneySingle")}</a>
-                            </li>
-                          </ul>
+                          <a
+                            type="button"
+                            onClick={() => toggleSubmenu("attorney")}
+                          >
+                            {t("attorney")}
+                          </a>
+                          {openSubmenu === "attorney" && (
+                            <ul className="sub-menu">
+                              <li>
+                                <HashLink smooth to="/lowteam">
+                                  {t("attorneySingle")}
+                                </HashLink>
+                              </li>
+                            </ul>
+                          )}
                         </li>
+
                         <li className="menu-item-has-children">
-                          <a href="#">{t("blog")}</a>
-                          <ul className="sub-menu">
-                            <li>
-                              <a href="low-blog.html">{t("NewsPage")}</a>
-                            </li>
-                          </ul>
+                          <a href="/blog" onClick={() => toggleSubmenu("blog")}>
+                            {t("blog")}
+                          </a>
+                          {openSubmenu === "blog" && (
+                            <ul className="sub-menu">
+                              <li>
+                                <HashLink smooth to="/low-blog.html">
+                                  {t("NewsPage")}
+                                </HashLink>
+                              </li>
+                            </ul>
+                          )}
                         </li>
+
                         <li className="menu-item-has-children">
-                          <a href="#">{t("library")}</a>
-                          <ul className="sub-menu">
-                            <li>
-                              <a href="/LBLibrary">{t("libraryLebanese")}</a>
-                            </li>
-                            <li>
-                              <a href="/UAELibrary">{t("libraryUAE")}</a>
-                            </li>
-                          </ul>
+                          <a
+                            type="button"
+                            onClick={() => toggleSubmenu("library")}
+                          >
+                            {t("library")}
+                          </a>
+                          {openSubmenu === "library" && (
+                            <ul className="sub-menu">
+                              <li>
+                                <HashLink smooth to="/LBLibrary">
+                                  {t("libraryLebanese")}
+                                </HashLink>
+                              </li>
+                              <li>
+                                <HashLink smooth to="/UAELibrary">
+                                  {t("libraryUAE")}
+                                </HashLink>
+                              </li>
+                            </ul>
+                          )}
                         </li>
+
                         <li>
-                          <HashLink smooth to="/Contact">
+                          <HashLink smooth to="/#contact">
                             {t("contact")}
                           </HashLink>
                         </li>
@@ -173,7 +222,7 @@ function Header() {
                     </div>
 
                     <div className="donate-btn-header">
-                      <a className="dtbtn" href="#">
+                      <a className="dtbtn" href="tel:+96103114402">
                         {t("consultation")}
                       </a>
                     </div>
@@ -191,13 +240,13 @@ function Header() {
           <div className="row">
             <div className="col-sm-12 ">
               <div className="mobile_menu_logo">
-                <a href="/" title="poket">
+                <HashLink to="/" title="poket" onClick={closeMobileMenu}>
                   <img
                     src={require("../images/logo1.jpg")}
                     alt=""
                     style={{ width: "100px", height: "100px" }}
                   />
-                </a>
+                </HashLink>
               </div>
               <button
                 className="mobile-menu-toggle d-block d-lg-none"
@@ -222,16 +271,21 @@ function Header() {
           <nav className="mobile-offcanvas-nav">
             <ul className="mobile-menu">
               <li>
-                <a href="/">{t("home")}</a>
+                <HashLink smooth to="/" onClick={closeMobileMenu}>
+                  {t("home")}
+                </HashLink>
               </li>
               <li>
-                <a href="/about">{t("about1")}</a>
+                <HashLink smooth to="/about" onClick={closeMobileMenu}>
+                  {t("about1")}
+                </HashLink>
               </li>
               <li>
-                <HashLink smooth to="/#practice">
+                <HashLink smooth to="/#practice" onClick={closeMobileMenu}>
                   {t("practice")}
                 </HashLink>
               </li>
+
               <li className="has-submenu">
                 <a href="#" onClick={() => toggleSubmenu("attorney")}>
                   {t("attorney")}
@@ -240,9 +294,9 @@ function Header() {
                 {openSubmenu === "attorney" && (
                   <ul className="submenu">
                     <li>
-                      <a href="low-single-project.html">
+                      <HashLink smooth to="/lowteam" onClick={closeMobileMenu}>
                         {t("attorneySingle")}
-                      </a>
+                      </HashLink>
                     </li>
                   </ul>
                 )}
@@ -253,11 +307,16 @@ function Header() {
                   {t("blog")}
                 </a>
                 <span className="submenu-icon">&#9662;</span>
-
                 {openSubmenu === "blog" && (
                   <ul className="submenu">
                     <li>
-                      <a href="low-single-project.html">{t("NewsPage")}</a>
+                      <HashLink
+                        smooth
+                        to="/low-blog.html"
+                        onClick={closeMobileMenu}
+                      >
+                        {t("NewsPage")}
+                      </HashLink>
                     </li>
                   </ul>
                 )}
@@ -268,26 +327,45 @@ function Header() {
                   {t("library")}
                 </a>
                 <span className="submenu-icon">&#9662;</span>
-
                 {openSubmenu === "library" && (
                   <ul className="submenu">
                     <li>
-                      <a href="/LBLibrary">{t("libraryLebanese")}</a>
+                      <HashLink
+                        smooth
+                        to="/LBLibrary"
+                        onClick={closeMobileMenu}
+                      >
+                        {t("libraryLebanese")}
+                      </HashLink>
                     </li>
                     <li>
-                      <a href="/UAELibrary">{t("libraryUAE")}</a>
+                      <HashLink
+                        smooth
+                        to="/UAELibrary"
+                        onClick={closeMobileMenu}
+                      >
+                        {t("libraryUAE")}
+                      </HashLink>
                     </li>
                   </ul>
                 )}
               </li>
+
               <li>
-                <HashLink smooth to="/#contact">
+                <HashLink smooth to="/#contact" onClick={closeMobileMenu}>
                   {t("contact")}
                 </HashLink>
               </li>
             </ul>
+
             <div className="main-search-menu">
-              <button onClick={toggleLanguage} className="lang-switcher-btn">
+              <button
+                onClick={() => {
+                  toggleLanguage();
+                  closeMobileMenu();
+                }}
+                className="lang-switcher-btn"
+              >
                 {i18n.language === "en" ? (
                   <>
                     <img
@@ -309,13 +387,26 @@ function Header() {
                 )}
               </button>
             </div>
+
             <div className="mobile-footer">
-              <a className="subscribe-btn" href="#">
+              <a
+                className="subscribe-btn"
+                href="tel:+96103114402"
+                onClick={closeMobileMenu}
+              >
                 {t("consultation")}
               </a>
             </div>
           </nav>
         </div>
+
+        {/* Optional backdrop to close on outside click */}
+        {isMobileMenuOpen && (
+          <div
+            className="mobile-offcanvas-backdrop"
+            onClick={closeMobileMenu}
+          />
+        )}
       </div>
     </>
   );

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -42,7 +42,13 @@ function Low() {
   const { i18n, t } = useTranslation();
   const slides = t("hero_slides", { returnObjects: true });
   const isArabic = i18n.language === "ar";
+  const [heroSlides, setHeroSlides] = useState(
+    () => t("hero_slides", { returnObjects: true }) || []
+  );
 
+  useEffect(() => {
+    setHeroSlides(t("hero_slides", { returnObjects: true }) || []);
+  }, [i18n.language, t]);
   return (
     <>
       <div className="witr_swiper_area">
@@ -55,6 +61,7 @@ function Low() {
             >
               <div className="hero-wrapper">
                 <Swiper
+                  key={`hero-${i18n.language}`}
                   modules={[Autoplay]}
                   autoplay={{ delay: 3000 }}
                   loop={true}

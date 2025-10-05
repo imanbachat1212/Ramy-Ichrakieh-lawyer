@@ -2065,7 +2065,9 @@
   :dir(rtl) #about-btn {
     left: 60%;
   }
-
+  :dir(ltr) #about-btn {
+    left: 0%;
+  }
   .carosol_area .witr_btn {
     margin-top: 40px !important;
   }
