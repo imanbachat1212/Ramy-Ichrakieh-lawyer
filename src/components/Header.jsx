@@ -272,10 +272,10 @@ function Header() {
                 {openSubmenu === "library" && (
                   <ul className="submenu">
                     <li>
-                      <a href="low-blog.html">{t("libraryLebanese")}</a>
+                      <a href="/LBLibrary">{t("libraryLebanese")}</a>
                     </li>
                     <li>
-                      <a href="low-blog.html">{t("libraryUAE")}</a>
+                      <a href="/UAELibrary">{t("libraryUAE")}</a>
                     </li>
                   </ul>
                 )}

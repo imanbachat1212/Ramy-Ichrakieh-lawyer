@@ -69,20 +69,6 @@
     position: relative;
   }
 
-  /* LTR Support */
-  :dir(ltr) .timeline-container {
-    left: 30%;
-  }
-  :dir(ltr) .timeline-container::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 55%; /* for LTR */
-    height: 100%;
-    width: 2px;
-    background-color: #d0bf90;
-  }
-
   /* RTL Support */
   :dir(rtl) .timeline-container {
     right: 25%;
@@ -142,14 +128,12 @@
   }
 
   /* LTR Support */
-  :dir(ltr) .timeline-container {
-    right: 30%;
-  }
+
   :dir(ltr) .timeline-container::before {
     content: "";
     position: absolute;
     top: 0;
-    left: 55%; /* for LTR */
+    left: 15%; /* for LTR */
     height: 100%;
     width: 2px;
     background-color: #d0bf90;

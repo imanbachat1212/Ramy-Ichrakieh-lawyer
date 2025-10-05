@@ -98,10 +98,7 @@ function Footer() {
                 </div>
               </div>
             </div>
-            <div
-              className="col-sm-12 col-md-6 col-lg-2"
-              style={{ marginRight: "30px" }}
-            >
+            <div className="col-sm-12 col-md-6 col-lg-2">
               <div className="widget widget_nav_menu">
                 <h2 className="widget-title">
                   {t("contactSection.locations.title")}
@@ -117,7 +114,7 @@ function Footer() {
 
             <div
               id="twr_description_widget-3"
-              className="widget widget_twr_description_widget"
+              className="widget widget_twr_description_widget fot"
             >
               <div className="poket-description-area">
                 <h2 className="widget-title">{t("footer.getInTouch")}</h2>

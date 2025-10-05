@@ -2062,9 +2062,10 @@
     margin-top: 11px !important;
     margin-bottom: 15px;
   }
-  #about-btn {
+  :dir(rtl) #about-btn {
     left: 60%;
   }
+
   .carosol_area .witr_btn {
     margin-top: 40px !important;
   }
@@ -2649,8 +2650,14 @@
     display: none !important;
   }
   #scrollUp {
-    bottom: 92px;
+    bottom: 32px;
     left: 30px;
+  }
+  :dir(rtl) .fot {
+    margin-right: 20px;
+  }
+  :dir(ltr) .fot {
+    margin-left: 20px;
   }
   .witr_blog_area10 .witr_blog_con {
     padding-top: 12px;
