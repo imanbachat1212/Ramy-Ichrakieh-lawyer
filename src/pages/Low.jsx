@@ -423,7 +423,7 @@ function Low() {
                   >
                     <div className="team-part all_color_team">
                       <div className="witr_team_section">
-                        <img src={require("../images/team1.jpg")} alt="" />
+                        <img src={require("../images/ghinwa.jpg")} alt="" />
                         <div className="team_o_icons all_team_icon_o_color">
                           <ul className="witr_pots_team_s">
                             <li>

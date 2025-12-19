@@ -136,8 +136,8 @@ module.exports = {
     subtitle: "محامونا الخبراء",
     members: {
       liton: {
-        name: "ليتون ساركار",
-        role: "الدعم",
+        name: " غنوة المير ",
+        role: "المحامية",
       },
       tomas: {
         name: "توماس براون",

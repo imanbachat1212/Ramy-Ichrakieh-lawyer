@@ -134,8 +134,8 @@ module.exports = {
     subtitle: "Our Expert Lawyers",
     members: {
       liton: {
-        name: "Liton Sarkar",
-        role: "Support",
+        name: "Ghinwa Al Mir",
+        role: "Lawyer",
       },
       tomas: {
         name: "Tomas Brown",
