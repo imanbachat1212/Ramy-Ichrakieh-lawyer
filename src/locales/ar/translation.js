@@ -135,7 +135,7 @@ module.exports = {
     title: "فريقنا",
     subtitle: "محامونا الخبراء",
     members: {
-      liton: {
+      ghinwa: {
         name: " غنوة المير ",
         role: "المحامية",
       },

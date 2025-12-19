@@ -10,6 +10,7 @@ import UAELibrary from "./pages/UAELibrary.jsx";
 import LowTeam from "./pages/LowTeam.jsx";
 import Contact from "./pages/Contact.jsx";
 import Blog from "./pages/Blog.jsx";
+import Singleblog from "./pages/Singleblog.jsx";
 import { useTranslation } from "react-i18next";
 import { FloatingWhatsApp } from "react-floating-whatsapp";
 import AOS from "aos";
@@ -36,6 +37,7 @@ const App = () => {
             <Route path="/blog" element={<Blog />} />
             <Route path="/LBLibrary" element={<LBLibrary />} />
             <Route path="/UAELibrary" element={<UAELibrary />} />
+            <Route path="/singleblog" element={<Singleblog />} />
             <Route path="/lowteam" element={<LowTeam />} />
             <Route path="/Contact" element={<Contact />} />
           </Routes>

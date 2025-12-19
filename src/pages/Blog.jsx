@@ -16,7 +16,7 @@ const posts = [
     author: "Poket",
     date: "31 Oct 2022",
     title: "Industrial Branch Of Engineering.",
-    href: "/low-single-blog.html",
+    href: "/singleblog",
   },
   {
     img: team1,

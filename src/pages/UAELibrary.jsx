@@ -1,11 +1,9 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-
-
 function UAELibrary() {
-       const { t,i18n } = useTranslation();
-      const isArabic = i18n.language === "ar";
+  const { t, i18n } = useTranslation();
+  const isArabic = i18n.language === "ar";
 
   const uaeLaws = [
     {
@@ -66,8 +64,14 @@ function UAELibrary() {
     },
   ];
   return (
-    <div style={{ padding: "3rem",  textAlign: "center" }} dir={isArabic ? "rtl" : "ltr"}>
-      <h2 style={{ fontSize: "2rem", marginBottom: "2rem" }}>  {t("libraryUAETitle")}</h2>
+    <div
+      style={{ padding: "3rem", textAlign: "center" }}
+      dir={isArabic ? "rtl" : "ltr"}
+    >
+      <h2 style={{ fontSize: "2rem", marginBottom: "2rem" }}>
+        {" "}
+        {t("libraryUAETitle")}
+      </h2>
       <div
         style={{
           display: "grid",
@@ -103,7 +107,9 @@ function UAELibrary() {
             }}
           >
             <div style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>📄</div>
-            <h3 style={{ fontSize: "1.1rem", marginBottom: "1rem" }}>{law.title}</h3>
+            <h3 style={{ fontSize: "1.1rem", marginBottom: "1rem" }}>
+              {law.title}
+            </h3>
             <a
               href={law.url}
               target="_blank"
@@ -112,14 +118,13 @@ function UAELibrary() {
                 padding: "10px 20px",
                 borderRadius: "8px",
                 backgroundColor: "#d0bf90",
-                color: "#d0bf90",
+                color: "#fff",
                 textDecoration: "none",
                 fontWeight: "bold",
                 transition: "background-color 0.2s",
               }}
-        
             >
-               {t("lawButton")}
+              {t("lawButton")}
             </a>
           </div>
         ))}
