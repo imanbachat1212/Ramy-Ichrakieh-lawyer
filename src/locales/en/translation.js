@@ -133,17 +133,17 @@ module.exports = {
     title: "Our Team",
     subtitle: "Our Expert Lawyers",
     members: {
-      liton: {
+      rami: {
+        name: "Ramy Ichrakieh",
+        role: "Founder",
+      },
+      ghinwa: {
         name: "Ghinwa Al Mir",
         role: "Lawyer",
       },
       tomas: {
         name: "Tomas Brown",
         role: "Engineer",
-      },
-      rami: {
-        name: "Ramy Ichrakieh",
-        role: "Founder",
       },
     },
   },

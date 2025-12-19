@@ -407,9 +407,9 @@ function Low() {
                         </div>
                         <div className="witr_team_content post_team_p11 all_content_bg_color text-center">
                           <h5>
-                            <a href="#">{t("team.members.liton.name")}</a>
+                            <a href="#">{t("team.members.rami.name")}</a>
                           </h5>
-                          <span>{t("team.members.liton.role")}</span>
+                          <span>{t("team.members.rami.role")}</span>
                         </div>
                       </div>
                     </div>
@@ -445,9 +445,9 @@ function Low() {
                         </div>
                         <div className="witr_team_content post_team_p11 all_content_bg_color text-center">
                           <h5>
-                            <a href="#">{t("team.members.tomas.name")}</a>
+                            <a href="#">{t("team.members.ghinwa.name")}</a>
                           </h5>
-                          <span>{t("team.members.tomas.role")}</span>
+                          <span>{t("team.members.ghinwa.role")}</span>
                         </div>
                       </div>
                     </div>
@@ -483,9 +483,9 @@ function Low() {
                         </div>
                         <div className="witr_team_content post_team_p11 all_content_bg_color text-center">
                           <h5>
-                            <a href="#">{t("team.members.rami.name")}</a>
+                            <a href="#">{t("team.members.tomas.name")}</a>
                           </h5>
-                          <span>{t("team.members.rami.role")}</span>
+                          <span>{t("team.members.tomas.role")}</span>
                         </div>
                       </div>
                     </div>
