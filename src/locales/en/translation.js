@@ -230,6 +230,7 @@ module.exports = {
   newsSection: {
     title: "Latest News",
     subtitle: "Catch up on our most recent activities and case updates.",
+    readMore: "Read More",
   },
   footer: {
     about:

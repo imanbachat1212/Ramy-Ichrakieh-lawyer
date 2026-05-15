@@ -162,7 +162,7 @@ function Footer() {
             <div className="col-lg-6 col-md-6  col-sm-12">
               <div className="footer-menu text-right">
                 <a
-                  href="https://imanportfolio.netlify.app/"
+                  href="https://imandev.netlify.app/"
                   style={{
                     display: "flex",
                     alignItems: "center",

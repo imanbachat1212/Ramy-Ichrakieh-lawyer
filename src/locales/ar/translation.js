@@ -232,6 +232,7 @@ module.exports = {
   newsSection: {
     title: "آخر الأخبار",
     subtitle: "تابع أحدث نشاطاتنا وآخر المستجدات في القضايا.",
+    readMore: "اقرأ المزيد",
   },
   footer: {
     about:

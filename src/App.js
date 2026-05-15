@@ -37,7 +37,7 @@ const App = () => {
             <Route path="/blog" element={<Blog />} />
             <Route path="/LBLibrary" element={<LBLibrary />} />
             <Route path="/UAELibrary" element={<UAELibrary />} />
-            <Route path="/singleblog" element={<Singleblog />} />
+            <Route path="/blog/:slug" element={<Singleblog />} />
             <Route path="/lowteam" element={<LowTeam />} />
             <Route path="/Contact" element={<Contact />} />
           </Routes>
